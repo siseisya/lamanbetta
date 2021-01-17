@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registration Form</title>
+
+<link rel="stylesheet" href="login.css">
+<script>
+    function previewFile() {
+      const preview = document.querySelector('img');
+      const file = document.querySelector('input[type=file]').files[0];
+      const reader = new FileReader();
+  
+      reader.addEventListener("load", function () {
+        // convert image file to base64 string
+        preview.src = reader.result;
+      }, false);
+  
+      if (file) {
+        reader.readAsDataURL(file);
+      }
+    }
+
+    Filevalidation = () => { 
+        const fi = document.getElementById('file'); 
+        // Check if any file is selected. 
+        if (fi.files.length > 0) { 
+            for (const i = 0; i <= fi.files.length - 1; i++) { 
+  
+                const fsize = fi.files.item(i).size; 
+                const file = Math.round((fsize / 1024)); 
+                // The size of the file. 
+                if (file >= 200) { 
+                    alert( 
+                      "File too Big, please select a file less than 200kb"); 
+                } else if (file < 10) { 
+                    alert( 
+                      "File too small, please select a file greater than 20kb"); 
+                } else { 
+                   previewFile();
+                } 
+            } 
+        } 
+    } 
+  </script>
+</head>
+
+<body>
+
+  <div class="wrapper fadeInDown">
+<div id="formContent">
+
+    <h2 align="center">Please register your account with us</h2>
+    <p align="center"><a href="blogbetta.html"> Get your latest update here</a></p>
+
+
+    <form action="index.php" enctype="multipart/form-data" method="post" align="center"
+    onsubmit="return confirm('Are you sure you want to register?');">
+  
+   
+      <img src="" height="200"><br>
+    <input type="file" onchange="Filevalidation();" class="button" name="uploaded_file" id="file"><br>
+    
+    <label for="username"><b>Username :</b></label><br>
+    <input type="text" name="username" id="username" value="" required> <br>
+  
+          <label for="password"><b>Password :</b></label><br>
+          <input type="password" name="password" id="password" value="" required> <br>
+  
+          <label for="email"><b>Email :</b></label><br>
+          <input type="text" name="email" id="email" value="" required> <br>
+
+          <label for="address"><b>Address :</b></label><br>
+          <input type="text" name="address" id="address" value="" required> <br>
+
+          <input type="submit" value="Submit" class="button">
+
+          
+          </form>
+          
+          <p align="center"><a href="login.html">Already have an account? Click here </a></p>
+          <p align="center"><a href="blogbetta.html">Back </a></p>
+      
+          
+          <div class="formFooter">
+            <p>Author: Norfarisha Atina (261594)<br>
+            <a href="mailto:siseisya@gmail.com">siseisya@gmail.com</a></p>
+          </div>
+
+        </div>
+      </div>
+
+        </body>
+</html>
